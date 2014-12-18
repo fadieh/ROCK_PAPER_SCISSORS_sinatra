@@ -8,6 +8,11 @@ class RockPaperScissorsSinatra < Sinatra::Base
 		erb :index
 	end
 
+	post '/game' do
+		@player1 = params[:p1_name]
+		erb :game
+	end
+
 	# start sever if ruby file executed
 	run! if app_file == $0
 
