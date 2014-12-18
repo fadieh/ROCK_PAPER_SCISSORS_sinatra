@@ -32,4 +32,5 @@ end
 
 Then(/^I should see the words "(.*?)"$/) do |arg1|
 	expect(page).to have_content 'Hello Fadie'
+	expect(page).to have_content 'Choose your weapon!'
 end

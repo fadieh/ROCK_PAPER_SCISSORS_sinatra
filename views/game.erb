@@ -1,1 +1,8 @@
 <h1>Hello <%= @player1 %>!</h1>
+<h3>Choose your weapon!</h3>
+
+<form action="/result" method="post">
+<input type="radio" id="rock" name="weapon" value="rock">Rock<br>
+<input type="radio" id="paper" name="weapon" value="paper">Paper<br>
+<input type="radio" id="scissors" name="weapon" value="scissors">Scissors<br>
+<input type="submit" name="turn" value="play!">
