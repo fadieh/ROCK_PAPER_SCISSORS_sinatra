@@ -19,6 +19,10 @@ class RockPaperScissorsSinatra < Sinatra::Base
 		erb :game
 	end
 
+	post '/result' do
+		
+	end
+
 	# start sever if ruby file executed
 	run! if app_file == $0
 
