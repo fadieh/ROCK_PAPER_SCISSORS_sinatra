@@ -5,13 +5,17 @@ require_relative 'player'
 class RockPaperScissorsSinatra < Sinatra::Base
 
 	set :views, Proc.new {File.join(root, '..', 'views')}
+	set :public_dir, Proc.new {File.join(root, '..', 'public')}
+	set :public_folder, 'public'
+
+	enable :sessions
+
+	GAME = Game.new
+
+	# Routing
 
 	get '/' do
 		erb :index
-	end
-
-	post '/' do
-
 	end
 
 	post '/game' do
@@ -19,8 +23,15 @@ class RockPaperScissorsSinatra < Sinatra::Base
 		erb :game
 	end
 
+	# get '/result' do
+	
+	# end
+
 	post '/result' do
-		
+		@weapon1 = params[:weapon].to_s 
+		GAME.playerchoice = @weapon1
+		GAME.computerchoice = GAME.random_throw!
+		erb :result
 	end
 
 	# start sever if ruby file executed

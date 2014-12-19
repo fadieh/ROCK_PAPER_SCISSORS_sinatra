@@ -1,26 +1,26 @@
 class Game
 
-	attr_accessor :player1, :computer
+	attr_accessor :playerchoice, :computerchoice
 
 	def initialize 
-		@player1 = nil
-		@computer = nil
+		@playerchoice = nil # rock
+		@computerchoice = nil
 	end
 
-	@defeats = { rock: :scissors, paper: :rock, scissors: :paper }
-	@throws = @defeat.keys
-
-	def random_throw
-		@throws.sample
+	def random_throw!
+		@computerchoice = ["rock", "paper", "scissors"].sample
 	end
 
 	def winner
-		if player_throw == computer_throw
+
+		defeats = { 'rock' => 'scissors', 'paper' => 'rock', 'scissors' => 'paper' }
+
+		if playerchoice == computerchoice
 			"You tied with the computer. Try again!"
-		elsif computer_throw == @defeat[player_throw]
-			"Nicely done; #{player_throw} beats #{computer_throw!}"
+		elsif defeats[playerchoice] == computerchoice
+			"Nicely done; #{playerchoice} beats #{computerchoice}!"
 		else
-			"Ouch; #{computer_throw} beats #{player_throw}. Better luck next time."
+			"Ouch; #{computerchoice} beats #{playerchoice}. Better luck next time."
 		end
 	end
 
